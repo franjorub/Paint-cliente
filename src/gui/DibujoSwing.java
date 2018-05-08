@@ -1,4 +1,4 @@
-package Principal;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -39,7 +39,7 @@ public class DibujoSwing implements Serializable {
  
   public void show() {
     // creando el frame principal
-    JFrame frame = new JFrame("Practica 1 - Paint");
+    JFrame frame = new JFrame("Cliente");
     Container contenido = frame.getContentPane();
     // establecer layout en el contenido del panel
     contenido.setLayout(new BorderLayout());
@@ -65,7 +65,7 @@ public class DibujoSwing implements Serializable {
     magentaBtn = new JButton("Magenta");
     magentaBtn.addActionListener(actionListener);
  
-    // añadiendo al panel
+    // aï¿½adiendo al panel
     //controles.add(verdeBtn);
     //controles.add(azulBtn);
     controles.add(negroBtn);
@@ -73,8 +73,8 @@ public class DibujoSwing implements Serializable {
     controles.add(magentaBtn);
     controles.add(limpiarBtn);
  
-    // añadiendo al ocntenido del panel
-    contenido.add(controles, BorderLayout.NORTH);
+    // aï¿½adiendo al ocntenido del panel
+    //contenido.add(controles, BorderLayout.NORTH);
  
     frame.setSize(600, 600);
     // habilitando cierre de ventana

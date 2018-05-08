@@ -1,5 +1,5 @@
 
-package Principal;
+package gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,6 +12,8 @@ import java.awt.event.MouseMotionAdapter;
 import java.io.Serializable;
 
 import javax.swing.JComponent;
+
+import conection.Cliente;
  
 /**
 * 
@@ -40,21 +42,25 @@ public class AreaDibujo extends JComponent implements Serializable {
  
     addMouseMotionListener(new MouseMotionAdapter() {
       public void mouseDragged(MouseEvent e) {
-        // coordenadas x,y cuando se mueve el mouse
-        xActual = e.getX();
-        yActual = e.getY();
- 
-        if (g2 != null) {
-          // dibuja si el contenido de g2 no es nulo
-          g2.drawLine(viejaX, viejaY, xActual, yActual);
-          // refresca el area de dibujo 
-          repaint();
-          // actualiza las coordenadas viejas con el valor de las nuevas
-          viejaX = xActual;
-          viejaY = yActual;
-        }
+    	  dibujar(e.getX(),e.getY());
       }
     });
+  }
+  
+  public void dibujar(int xActual, int yActual) {
+	  this.xActual = xActual;
+      this.yActual = yActual;
+      if (g2 != null) {
+        // dibuja si el contenido de g2 no es nulo
+        g2.drawLine(viejaX, viejaY, this.xActual, this.yActual);
+        // refresca el area de dibujo 
+        repaint();
+        // actualiza las coordenadas viejas con el valor de las nuevas
+        this.viejaX = this.xActual;
+        this.viejaY = this.yActual;
+      }
+      
+      Cliente socket = new Cliente(xActual,yActual);
   }
  
   protected void paintComponent(Graphics g) {

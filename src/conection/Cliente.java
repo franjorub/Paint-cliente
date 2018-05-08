@@ -20,13 +20,12 @@ public class Cliente {
 	Socket sc;
 	DataOutputStream salida;
 
-	public Cliente(String mensaje) {
-
+	public Cliente(int x, int y) {
 		try {
-
 			sc = new Socket(HOST, PUERTO);
 			salida = new DataOutputStream(sc.getOutputStream());
-			salida.writeUTF(mensaje);
+			salida.writeInt(x);
+			salida.writeInt(y);
 			sc.close();
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
